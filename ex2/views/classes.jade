@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1 Classes
+    list
+    ul
+    each cl in data
+        li 
+          a(href="/classes/c"+cl.codigo)= cl.codigo
+          |  - #{cl.titulo}
+  h4
+    a(href="/") Voltar à Pagina Inicial

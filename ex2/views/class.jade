@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    h1= data.titulo
+    h2 Código - #{data.codigo}
+
+
+    if (data.nivel > 1)
+        p
+          b Ascendente:
+            a(href="/classes/c" + data.pai.codigo)= data.pai.codigo
+            |  - #{data.pai.titulo}
+
+      if (data.filhos.length)
+          p
+            b Descendentes:
+              ul
+                each pr in data.filhos
+                  li
+                    a(href="/classes/c" + pr.codigo)= pr.codigo
+                    |  - #{pr.titulo}
+    h4
+      a(href="/") Voltar à Pagina Inicial
